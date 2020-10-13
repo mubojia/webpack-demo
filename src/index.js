@@ -10,9 +10,8 @@ function component() {
   list.push(5);
   list.push(6);
   list.push(7);
-  console.log(list.head);
-  console.log(list.removeAt(1), list.head);
-  console.log(list)
+
+  console.log(list.toString())
 
   const element = document.createElement('div');
   return element;
