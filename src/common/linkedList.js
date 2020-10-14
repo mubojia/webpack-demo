@@ -81,7 +81,7 @@ export default class LinkedList {
     insert(element, position) {
 
         // 检测position是否超过范围，超过的话返回false
-        if (position >= 0 && position < this.count) {
+        if (position >= 0 && position <= this.count) {
 
             // 获取需要增加的元素
             const node = new Nodes(element);
@@ -109,24 +109,14 @@ export default class LinkedList {
 
     // 传入索引值，返回该位置的元素
     getElementAt(index) {
-
-        // 检测index是否超出范围，超出的话返回undefined，没有则返回该值
-        if (index >= 0 && index < this.count) {
-
-            // 设置第一个元素
+        if (index >= 0 && index <= this.count) {
             let node = this.head;
-
-            // 循环找到索引值为index的元素，
             for (let i = 0; i < index && node != null; i++) {
                 node = node.next;
             }
-
-            // 返回该元素
             return node;
         }
-
         return undefined;
-
     }
 
     // 传入一个元素，返回链表中元素的位置
