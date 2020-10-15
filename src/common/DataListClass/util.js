@@ -1,8 +1,35 @@
-import Deque from './deque';
-import Queue from './queue';
-import Stack from "./stack";
+import Deque from '../deque';
+import Queue from '../queue';
+import Stack from "../stack";
 
 let Util = {
+
+    loseloseHashCode(key) {
+        if(typeof keys === 'number') {
+            return key;
+        }
+        const tableKey = this.defaultToString(key);
+        let hash = 0;
+        for(let i = 0; i < tableKey.length; i++) {
+            hash += tableKey.charCodeAt(i);
+        }
+        return hash % 37;
+    },
+
+    hashCode(key) {
+        return this.loseloseHashCode(key)
+    },
+
+    defaultToString: (item) => {
+        if(item === null) {
+            return "NULL";
+        } else if (item === undefined) {
+            return "UNDEFINED";
+        } else if (typeof item === 'string' || item instanceof String) {
+            return `${item}`;
+        }
+        return item.toString();
+    },
 
     defaultEquals: (a, b) => {
         return a === b;
