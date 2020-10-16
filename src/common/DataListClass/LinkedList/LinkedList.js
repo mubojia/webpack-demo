@@ -1,6 +1,6 @@
 // 链表
-import Util from './util';
-import { Nodes } from './nodes';
+import Util from '../Util/Util';
+import { Nodes } from '../../models/Nodes';
 
 export default class LinkedList {
 

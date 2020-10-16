@@ -1,6 +1,6 @@
-import Deque from '../deque';
-import Queue from '../queue';
-import Stack from "../stack";
+import Deque from '../Queue/Deque';
+import Queue from '../Queue/Queue';
+import Stack from "../Queue/Stack";
 
 let Util = {
 
