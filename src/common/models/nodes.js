@@ -5,6 +5,14 @@ class Nodes {
     }
 }
 
+class BinaryTreeNode {
+    constructor(key) {
+        this.key = key;
+        this.left = null;
+        this.right = null;
+    }
+}
+
 class DoublyLinkedList extends Node {
     constructor(element, next, prev) {
         super(element, next);
@@ -12,4 +20,4 @@ class DoublyLinkedList extends Node {
     }
 }
 
-module.exports = { Nodes, DoublyLinkedList }
+module.exports = { Nodes, BinaryTreeNode, DoublyLinkedList }
