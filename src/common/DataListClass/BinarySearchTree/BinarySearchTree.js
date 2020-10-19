@@ -80,7 +80,7 @@ export default class BinarySearchTree {
         while (current && current.left != null) {
             current = current.left;
         }
-        return current.key;
+        return current;
     }
 
     max() {
@@ -92,7 +92,7 @@ export default class BinarySearchTree {
         while (current && current.right != null) {
             current = current.right;
         }
-        return current.key;
+        return current;
     }
 
     // 查找一个键，存在返回true，不存在返回false
@@ -115,6 +115,50 @@ export default class BinarySearchTree {
     }
 
     remove(key) {
+        this.root = this.removeNode(this.root, key);
+        console.log(this.root)
+    }
 
+    removeNode(node, key) {
+
+        if (node == null) {
+            return null;
+        }
+
+        if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+
+            node.left = this.removeNode(node.left, key);
+            return node;
+
+        } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+
+            node.right = this.removeNode(node.right, key);
+            return node;
+
+        } else {
+
+            // 第一种：移除一个叶节点
+            if (node.left == null && node.right == null) {
+                node = null;
+                return node;
+            }
+
+            // 第二种：移除有一个左侧或右侧子节点的节点
+            if (node.left == null) {
+                node = node.right;
+                return node;
+            } else if (node.right == null) {
+                node = node.left;
+                return node;
+            }
+
+            // 第三种 移除有两个子节点的节点
+            const aux = this.minNode(node.right);
+            node.key = aux.key;
+            node.right = this.removeNode(node.right, aux.key)
+
+            return node;
+
+        }
     }
 }
